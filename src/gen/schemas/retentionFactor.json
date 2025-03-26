@@ -1,0 +1,1 @@
+{"properties":{"id":{"type":"integer","example":235},"code":{"type":"integer","example":3460},"description":{"type":"string","example":"VEG, ROOTS, ETC, SAUTEED"}},"x-readme-ref-name":"RetentionFactor"}

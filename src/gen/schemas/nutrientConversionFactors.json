@@ -1,0 +1,1 @@
+{"properties":{"type":{"type":"string","example":".ProteinConversionFactor"},"value":{"type":"number","format":"float","example":6.25}},"x-readme-ref-name":"NutrientConversionFactors"}

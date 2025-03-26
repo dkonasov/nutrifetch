@@ -1,0 +1,1 @@
+{"properties":{"id":{"type":"integer","format":"int32","example":999},"abbreviation":{"type":"string","example":"undetermined"},"name":{"type":"string","example":"undetermined"}},"x-readme-ref-name":"MeasureUnit"}

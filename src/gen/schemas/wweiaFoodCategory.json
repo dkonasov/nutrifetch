@@ -1,0 +1,1 @@
+{"properties":{"wweiaFoodCategoryCode":{"type":"integer","example":3002},"wweiaFoodCategoryDescription":{"type":"string","example":"Meat mixed dishes"}},"x-readme-ref-name":"WweiaFoodCategory"}
