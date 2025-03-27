@@ -1,7 +1,6 @@
 import { defineConfig } from '@kubb/core'
 import { pluginOas } from '@kubb/plugin-oas'
 import { pluginTs } from '@kubb/plugin-ts'
-import { pluginMsw } from '@kubb/plugin-msw'
 
 export default defineConfig(() => {
   return {
@@ -12,12 +11,6 @@ export default defineConfig(() => {
     output: {
       path: './src/gen',
     },
-    plugins: [
-      pluginOas(),
-      pluginTs(),
-      pluginMsw({
-        baseURL: 'https://api.nal.usda.gov',
-      }),
-    ],
+    plugins: [pluginOas(), pluginTs()],
   }
 })

@@ -27,9 +27,6 @@ importers:
       '@kubb/core':
         specifier: ^3.6.4
         version: 3.6.4
-      '@kubb/plugin-msw':
-        specifier: ^3.6.4
-        version: 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
       '@kubb/plugin-oas':
         specifier: ^3.6.4
         version: 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
@@ -515,18 +512,6 @@ packages:
   '@kubb/parser-ts@3.6.4':
     resolution: {integrity: sha512-E9v+uXISHs9aMuDiynGRhglk3klthHmWtdwYh3EfIJYT7Bh/K2uUoiYlb3VuURe3ahEI1v3OREmA1cbhWnySAQ==}
     engines: {node: '>=20'}
-
-  '@kubb/plugin-faker@3.6.4':
-    resolution: {integrity: sha512-VCbnPnwGgw/qh0SIPOqlzK7KtEyJi9xx2uVpidMpHjnXnIZkkHjSGAlvNOWMX3TXsl9mUHeeqCdctJlEuubspg==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@kubb/react': ^3.0.0
-
-  '@kubb/plugin-msw@3.6.4':
-    resolution: {integrity: sha512-ppCGpp9h4UBBx2QfoC59+pAdPn2Tt+IlE1/KfOIlXpPJWmRvpywlcGYFADT2qGE90ac+wcpDimgtxTFzmzTJKA==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@kubb/react': ^3.0.0
 
   '@kubb/plugin-oas@3.6.4':
     resolution: {integrity: sha512-M1SQ+Jcb3vB3UwNmCxe3yK7mG6on4edOAJrucGEkizpRC6aCxTgEM27kVjyO9YvrMvf9ugkXsXEz5IfCUrmZ8w==}
@@ -3172,31 +3157,6 @@ snapshots:
       prettier: 3.5.3
       remeda: 2.21.2
       typescript: 5.8.2
-
-  '@kubb/plugin-faker@3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)':
-    dependencies:
-      '@kubb/core': 3.6.4
-      '@kubb/fs': 3.6.4
-      '@kubb/oas': 3.6.4(encoding@0.1.13)
-      '@kubb/plugin-oas': 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
-      '@kubb/plugin-ts': 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
-      '@kubb/react': 3.6.4
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-
-  '@kubb/plugin-msw@3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)':
-    dependencies:
-      '@kubb/core': 3.6.4
-      '@kubb/fs': 3.6.4
-      '@kubb/oas': 3.6.4(encoding@0.1.13)
-      '@kubb/plugin-faker': 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
-      '@kubb/plugin-oas': 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
-      '@kubb/plugin-ts': 3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)
-      '@kubb/react': 3.6.4
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
 
   '@kubb/plugin-oas@3.6.4(@kubb/react@3.6.4)(encoding@0.1.13)':
     dependencies:
