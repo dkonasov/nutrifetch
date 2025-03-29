@@ -10,7 +10,7 @@ export class SqlJsStorage extends Storage<unknown> {
     const initSqlPromise = initSql({
       locateFile: (file) => `https://sql.js.org/dist/${file}`,
     })
-    const loadFilePromise = fetch('/db.sql').then((res) => res.bytes())
+    const loadFilePromise = fetch(`${import.meta.env.BASE_URL}db.sql`).then((res) => res.bytes())
 
     this.initPromise = Promise.all([initSqlPromise, loadFilePromise]).then(([sqlite, dbFile]) => {
       return new sqlite.Database(dbFile)
