@@ -2,6 +2,7 @@ import { buildSortingExpression } from '@/functions/build-sorting-expression'
 import type { FoodEntry } from '../types/food-entry'
 import { Storage, type StorageListParams } from './storage'
 import initSql from 'sql.js'
+import { buildWhereClause } from '@/functions/build-where-clause'
 
 export class SqlJsStorage extends Storage<unknown> {
   private initPromise: Promise<initSql.Database>
@@ -19,8 +20,10 @@ export class SqlJsStorage extends Storage<unknown> {
 
   async list(params: StorageListParams): Promise<FoodEntry[]> {
     const db = await this.initPromise
+    const whereClause = buildWhereClause(params)
+
     const statement = db.prepare(
-      `SELECT * FROM foods ${params.ids ? `WHERE id in (${params.ids.join(',')}) ` : ''}${buildSortingExpression(params.sort)} limit :limit`,
+      `SELECT * FROM foods ${whereClause}${buildSortingExpression(params.sort)} limit :limit`,
     )
     statement.bind({ ':limit': params.limit })
 

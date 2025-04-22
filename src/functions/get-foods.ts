@@ -5,11 +5,12 @@ export interface GetFoodsParams {
   limit: number
   sort: SortingState
   ids?: number[]
+  foodName?: string
 }
 
 export async function getFoods(params: GetFoodsParams) {
-  const { limit, sort, ids } = params
+  const { limit, sort, ids, foodName } = params
   const storage = new SqlJsStorage({})
 
-  return storage.list({ limit, sort, ids })
+  return storage.list({ limit, sort, ids, foodName })
 }

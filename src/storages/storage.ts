@@ -5,6 +5,7 @@ export interface StorageListParams {
   limit: number
   sort: SortingState
   ids?: number[]
+  foodName?: string
 }
 
 export abstract class Storage<Config> {

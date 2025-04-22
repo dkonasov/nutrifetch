@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import type { TableColumn } from '../types/table-column'
-import { useFoodList, type UseFoodListParams } from '../composables/use-food-list'
 import DataTable from './DataTable.vue'
 import type { SortingState } from '../types/sorting-state'
+import FoodsToolbar from './FoodsToolbar.vue'
+import { useFoodsStore } from '../store'
 
-const defaultFetchParams = { limit: 20, sort: [] }
-const { data: foods, refetch: refetchFoods } = useFoodList(defaultFetchParams)
+const foodsStore = useFoodsStore()
+
 const columns: TableColumn[] = [
   { id: 'name', title: 'Name' },
   { id: 'calories', title: 'Calories', sortable: true },
@@ -15,18 +16,20 @@ const columns: TableColumn[] = [
 ]
 
 function onSortChanged(sortingState: SortingState) {
-  const params: UseFoodListParams = { ...defaultFetchParams, sort: sortingState }
-
-  if (sortingState.length > 1 && foods.value) {
-    params.ids = foods.value.map((food) => food.id)
-  }
-
-  refetchFoods(params)
+  foodsStore.setSort(sortingState.slice())
 }
 </script>
 <template>
-  <div v-if="foods">
-    <DataTable :items="foods" :columns="columns" @sort="onSortChanged" />
+  <div v-if="!foodsStore.loading || foodsStore.foods.length > 0" class="foodsList">
+    <FoodsToolbar />
+    <DataTable :items="foodsStore.foods" :columns="columns" @sort="onSortChanged" />
   </div>
   <div v-else>Loading...</div>
 </template>
+<style scoped>
+.foodsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+</style>
