@@ -21,7 +21,7 @@ function onSubmit(e: Event) {
 
 <template>
   <form class="filter" @submit="onSubmit">
-    <input type="text" name="foodName" placeholder="Food name" />
+    <input type="text" name="foodName" placeholder="Food name" class="input" />
     <button type="submit">Search</button>
   </form>
 </template>
@@ -29,5 +29,9 @@ function onSubmit(e: Event) {
 .filter {
   display: flex;
   gap: 0.5em;
+}
+
+.input {
+  font-size: 16px;
 }
 </style>
