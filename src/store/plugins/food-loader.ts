@@ -1,8 +1,6 @@
-import type { SortingState } from '@/types/sorting-state'
-import type { PiniaPluginContext } from 'pinia'
-import type { StateTree } from '../foods'
+import type { PiniaPlugin, PiniaPluginContext } from 'pinia'
 
-export function foodLoaderPlugin(context: PiniaPluginContext<string, StateTree>) {
+export const foodLoaderPlugin: PiniaPlugin = (context: PiniaPluginContext) => {
   context.store.$onAction((action) => {
     if (action.name === 'setSort') {
       action.after(() => {
