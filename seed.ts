@@ -16,6 +16,8 @@ db.serialize(() => {
     let calories = 0
     let fats = 0
     let carbs = 0
+    let potassium = 0
+    let sugars = 0
     const name = item.description
     item.foodNutrients?.forEach((nutrient) => {
       if (nutrient.nutrient?.name === 'Protein') {
@@ -44,11 +46,19 @@ db.serialize(() => {
       ) {
         carbs = nutrient.amount || 0
       }
+
+      if (nutrient.nutrient?.name === 'Sugars, Total') {
+        sugars = nutrient.amount || 0
+      }
+
+      if (nutrient.nutrient?.name === 'Potassium, K') {
+        potassium = nutrient.amount || 0
+      }
     })
 
     try {
       db.run(
-        `INSERT INTO FOODS (name, carbs, fats, protein, calories) VALUES ('${name}', ${carbs.toFixed(2)}, ${fats.toFixed(2)}, ${proteins.toFixed(2)}, ${Math.round(calories)})`,
+        `INSERT INTO FOODS (name, carbs, fats, protein, calories, sugars, potassium) VALUES ('${name}', ${carbs.toFixed(2)}, ${fats.toFixed(2)}, ${proteins.toFixed(2)}, ${Math.round(calories)}, ${sugars.toFixed(2)}, ${potassium.toFixed(2)})`,
         () => {},
       )
     } catch (e) {
