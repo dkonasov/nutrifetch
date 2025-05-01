@@ -16,6 +16,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@floating-ui/vue": "^1.1.6",
     "pinia": "^3.0.2",
     "pinia-plugin-logger": "^1.0.0",
     "sql.js": "^1.13.0",

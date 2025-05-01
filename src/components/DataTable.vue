@@ -2,7 +2,7 @@
 import type { SortingState } from '../types/sorting-state'
 import type { TableColumn } from '../types/table-column'
 import { ref } from 'vue'
-import arrowSrc from '../assets/icons/arrow.svg'
+import AppIcon from './AppIcon.vue'
 
 defineProps({
   items: Array<Record<string, number | string>>,
@@ -63,7 +63,7 @@ function getHeaderClasses(column: string) {
           :class="getHeaderClasses(column.id)"
         >
           <span>{{ column.title }}</span
-          ><img :src="arrowSrc" alt="Sort" :class="'sortingArrow'" />
+          ><AppIcon icon="arrow" alt="Sort" className="sortingArrow" />
         </th>
       </tr>
     </thead>

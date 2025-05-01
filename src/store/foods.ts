@@ -14,6 +14,8 @@ const creatorFn = () => {
 
   const foods = ref<FoodEntry[]>([])
 
+  const selectedColumns = ref(['calories', 'fats', 'carbs', 'protein'])
+
   const loading = ref(false)
 
   function setSort(newFilter: SortingState) {
@@ -22,6 +24,14 @@ const creatorFn = () => {
 
   function setFilter(newFilter: FilterState) {
     filter.value = newFilter
+  }
+
+  function toggleColumn(column: string) {
+    if (selectedColumns.value.includes(column)) {
+      selectedColumns.value = selectedColumns.value.filter((col) => col !== column)
+    } else {
+      selectedColumns.value = [...selectedColumns.value, column]
+    }
   }
 
   async function loadFoods() {
@@ -50,6 +60,8 @@ const creatorFn = () => {
     loadFoods,
     loading,
     foods,
+    selectedColumns,
+    toggleColumn,
   }
 }
 
